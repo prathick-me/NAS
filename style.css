@@ -1,0 +1,855 @@
+:root {
+    --primary-color: #0d47a1; /* Professional Navy */
+    --secondary-color: #b0bec5; /* Metallic Grey */
+    --accent-color: #d32f2f; /* Safety Red */
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden; /* Keep this */
+    margin: 0;          /* Add this to prevent extra spacing */
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* Top Bar Styles */
+.top-bar {
+    background-color: #0d47a1; /* Matching the dark blue in your logo */
+    font-size: 14px;
+}
+.top-bar a {
+    transition: 0.3s;
+    text-decoration: none;
+}
+.top-bar a:hover {
+    color: #ffc107 !important;
+}
+
+/* Enquire Now Button */
+.btn-enquire {
+    background-color: #0d47a1;
+    color: white !important;
+    border-radius: 5px;
+    padding: 8px 20px !important;
+    font-weight: bold;
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Enhanced Slider Portal */
+.portal-container {
+    /* Adding a soft white glow background to make product visible */
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    position: relative;
+}
+
+.portal-ring {
+    /* Brighter sparkle effect */
+    background: conic-gradient(from 0deg, transparent, #ff8c00, #ffffff, #ffd700, transparent);
+    filter: blur(1px) drop-shadow(0 0 20px #ff8c00);
+}
+
+.product-label {
+    margin-top: 20px;
+    margin-left: 210px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    border-top: 2px solid #ffc107;
+    display: inline-block;
+    padding-top: 5px;
+}
+
+/* Add to style.css for the Navbar */
+.navbar {
+    background: rgba(0, 0, 0, 0.88) !important;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 0 !important;                        /* Reduces height */
+    transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+.navbar.scrolled {
+    background: #0d47a1 !important;               /* Matches top bar on scroll */
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.4);
+}
+.navbar-brand img {
+    height: 55px !important;                      /* Was 80px — reduce height */
+    transition: height 0.3s ease;
+}
+
+.navbar.scrolled .navbar-brand img {
+    height: 46px !important;
+}
+
+.navbar .nav-link {
+    color: #fff !important;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    padding: 8px 16px !important;                 /* Tighter padding = shorter bar */
+    transition: color 0.3s;
+}
+
+.navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 4px;
+    left: 50%;
+    background-color: #c33a3a;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after { width: 80%; }
+
+.navbar .nav-link.active { color: #c33a3a !important; }
+
+.parallax-wrapper {
+    background-color: #000;
+    position: relative;
+}
+
+
+
+/* Hero Container */
+.starex-hero {
+    height: 100vh;
+    width: 100%;
+    position: sticky;      /* Change from relative to sticky */
+    top: 0;               /* Add this to lock it at the top */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-attachment: fixed; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* Massive Background Text */
+.hero-bg-text {
+    position: absolute;
+    top: 19%; /* Moved even higher to clear the product images */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10vw; /* Reduced from 14vw to prevent left/right cropping */
+    font-weight: 900;
+    z-index: 1;
+    white-space: nowrap;
+    letter-spacing: -2px;
+    pointer-events: none;
+    width: 100%;
+    text-align: center;
+}
+
+/* FIX 4: Responsive Image Size */
+.hero-product-img {
+    position: relative;
+    z-index: 2;
+    width: 480px; /* Slightly smaller to fit better */
+    max-width: 90vw; 
+    filter: drop-shadow(0 0 30px rgba(0,0,0,0.9));
+    margin-top: 80px; /* Creates space between text and image */
+}
+
+.scroll-container {
+    height: 200vh; /* Adjust based on how many "slides" you want */
+}
+
+.text-red { color: #c33a3a; }
+.text-white { color: #fff; }
+
+
+.starex-hero:nth-child(1) {
+    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+        url('metallic.png');   /* swap with your actual dark bg or a photo */
+}
+
+.starex-hero:nth-child(2) {
+    background-color: #111;   /* ADD this line */
+    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+        url('ceramic.png');
+}
+/* Product Image Layer */
+/* .hero-product-img {
+    position: relative;
+    z-index: 3;
+    width: 450px;
+    filter: drop-shadow(0 0 30px rgba(0,0,0,0.8));
+    margin-top: 50px;
+} */
+
+/* Wavy Lines Background */
+.starex-hero::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.imgur.com/5u8L5O6.png') no-repeat center; /* Use a red wave/line pattern png */
+    background-size: contain;
+    opacity: 0.4;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Floating Labels */
+.float-label {
+    position: absolute;
+    z-index: 3;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #666;
+}
+.label-left { left: 10%; top: 60%; }
+.label-right { right: 10%; top: 60%; }
+
+.hero-bottom {
+    position: absolute;
+    bottom: 50px;
+    z-index: 3;
+    text-align: center;
+}
+
+.btn-catalog {
+    background-color: #c33a3a;
+    border: none;
+    padding: 12px 60px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+.btn-catalog:hover { background-color: #a32a2a; color: white; }
+
+
+
+/* Hero Section Base */
+.hero-slider-item {
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+/* Overlay for text readability */
+.hero-slider-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.2) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Dr. Strange Portal Effect */
+.portal-container {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.portal-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    /* The Sparkle Effect using Conic Gradient */
+    background: conic-gradient(from 0deg, transparent, #ff8c00, #ff4500, #ffd700, transparent);
+    mask: radial-gradient(circle, transparent 65%, black 66%);
+    -webkit-mask: radial-gradient(circle, transparent 65%, black 66%);
+    animation: rotatePortal 2s linear infinite;
+    filter: blur(2px) drop-shadow(0 0 15px #ff4500);
+}
+
+.portal-product-img {
+    width: 70%;
+    height: auto;
+    z-index: 3;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+}
+
+@keyframes rotatePortal {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Background Images */
+.bg-metallic { background-image: url('./backg.jpeg'); }
+.bg-ceramic { background-image: url('./backg.jpeg'); }
+
+
+
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 12px 30px;
+}
+
+.btn-primary:hover {
+    background-color: #0a3d8d;
+}
+
+.footer {
+    /* background-color: #1a1a1a; */
+     background: rgba(0, 0, 0, 0.88) !important;
+    color: white;
+    padding: 40px 0;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Discover Section Styling */
+.discover-section {
+    position: relative;
+    padding: 100px 0 0 0; /* No bottom padding so cards can overlap */
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.discover-content {
+    position: relative;
+    z-index: 2;
+}
+
+.watermark {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12vw;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.03); /* Very faint grey */
+    z-index: -1;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.text-primary-emphasis {
+    color: #0d47a1 !important; /* Matches your professional navy */
+}
+
+/* Feature Cards */
+.feature-cards-row {
+    margin-bottom: -60px; /* This makes the cards overlap the next section */
+    position: relative;
+    z-index: 10;
+}
+
+.feature-card {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 4px;
+    border: none;
+    transition: transform 0.3s ease;
+    text-align: left;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background-color: #f15a24; /* Orange-red from snippet */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(241, 90, 36, 0.3);
+}
+
+.bg-accent {
+    background-color: #f15a24 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .feature-cards-row {
+        margin-bottom: 20px;
+        padding: 0 15px;
+    }
+    .watermark {
+        font-size: 18vw;
+    }
+}
+
+/* Intro Section Layout */
+.intro-section {
+    padding-top: 70px !important; /* Space for overlapping cards from section above */
+    background: #fff;
+}
+
+.intro-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 2.5rem;
+}
+
+.title-line {
+    height: 2px;
+    width: 60px;
+    background-color: #ddd;
+}
+
+.custom-list li {
+    margin-bottom: 12px;
+    color: #444;
+    font-weight: 500;
+}
+
+/* The Circular Image Visual */
+.circle-visual-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.main-circle-split {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    border: 8px solid #fff;
+}
+
+.main-circle-split .half {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.ceramic-bg { background: #f8f9fa; border-right: 2px solid #fff; }
+.metallic-bg { background: #e9ecef; }
+
+.main-circle-split .half img {
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.main-circle-split:hover .half img {
+    transform: scale(1.1);
+}
+
+/* Small Floating Logo Circle */
+.logo-circle-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 160px;
+    height: 160px;
+    background: #0d47a1;
+; /* Dark Teal color from your snippet */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 8px solid #fff;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.logo-circle-overlay img {
+    width: 80%;
+    /* filter: brightness(0) invert(1);  */
+}
+
+@media (max-width: 991px) {
+    .intro-section { padding-top: 60px !important; }
+    .logo-circle-overlay { width: 120px; height: 120px; }
+}
+
+/* CTA Banner Section */
+.cta-banner-section {
+    position: relative;
+    background-image: url('backg.jpeg'); /* Replace with your actual bg image */
+    background-attachment: fixed;        /* This creates the parallax freeze effect */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 120px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cta-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);   /* Dark overlay for text readability */
+}
+
+.cta-banner-content {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-banner-title {
+    color: #ffffff;
+    font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.4;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.cta-btn {
+    background-color: #0d47a1;          /* Matches top bar + scrolled navbar */
+    color: #fff;
+    padding: 14px 50px;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: transparent;
+    border-color: #fff;
+    color: #fff;
+}
+
+/* Products Section */
+.products-section {
+    padding: 100px 0;
+    background-color: #f5f6f8;
+}
+
+.products-eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #c33a3a;
+    margin-bottom: 8px;
+}
+
+.products-heading {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #0d1b2a;
+}
+
+.products-divider {
+    width: 55px;
+    height: 3px;
+    background: #0d47a1;
+    margin: 14px auto 0;
+    border-radius: 2px;
+}
+
+/* Product Card */
+.product-display-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-display-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.13);
+}
+
+/* Image Side */
+.product-img-side {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px 30px;
+}
+
+.ceramic-side  { background: linear-gradient(135deg, #e8edf5, #f8f9fa); }
+.metallic-side { background: linear-gradient(135deg, #1a1a2e, #2c2c3e); }
+
+.product-img-side img {
+    width: 220px;
+    max-width: 80%;
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.2));
+    transition: transform 0.4s ease;
+}
+
+.product-display-card:hover .product-img-side img {
+    transform: scale(1.06);
+}
+
+.product-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: #0d47a1;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 3px;
+}
+
+/* Info Side */
+.product-info-side {
+    padding: 30px 28px 32px;
+}
+
+.product-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0d1b2a;
+    margin-bottom: 12px;
+}
+
+.product-title span {
+    color: #0d47a1;
+}
+
+.product-desc {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.product-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+}
+
+.product-benefits li {
+    font-size: 14px;
+    color: #444;
+    font-weight: 500;
+    padding: 6px 0;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-benefits li i {
+    color: #0d47a1;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+.product-enquire-btn {
+    background-color: #c33a3a;
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 32px;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.product-enquire-btn:hover {
+    background-color: transparent;
+    border-color: #c33a3a;
+    color: #c33a3a;
+}
+
+.metallic-btn {
+    background-color: #0d47a1;
+}
+
+.metallic-btn:hover {
+    border-color: #0d47a1;
+    color: #0d47a1;
+}
+
+@media (max-width: 768px) {
+    .products-section { padding: 60px 0; }
+    .product-title { font-size: 1.3rem; }
+}
+
+/* Footer */
+.footer {
+    background-color: #0f0f0f;
+    padding: 70px 0 0 0;
+    color: #aaa;
+}
+
+.footer-logo {
+    height: 60px;
+    filter: brightness(1.1);
+}
+
+.footer-tagline {
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    margin: 0;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-socials a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-socials a:hover {
+    background: #0d47a1;
+    border-color: #0d47a1;
+    color: #fff;
+}
+
+.footer-col-title {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #c33a3a;
+    display: inline-block;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links li a {
+    color: #AAAAAA;
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-links li a i {
+    color: #0d47a1;
+    font-size: 13px;
+    width: 16px;
+}
+
+.footer-links li a:hover {
+    color: #fff;
+}
+
+.footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-contact li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: #AAAAAA;
+    line-height: 1.6;
+}
+
+.footer-contact li i {
+    color: #0d47a1;
+    font-size: 15px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    margin-top: 50px;
+    border-top: 1px solid #1e1e1e;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 13px;
+    color: #555;
+}
