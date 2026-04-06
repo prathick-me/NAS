@@ -177,13 +177,13 @@ body {
 
 .starex-hero:nth-child(1) {
     background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
-        url('metallic.png');   /* swap with your actual dark bg or a photo */
+        url('assest/metallic.png');   /* swap with your actual dark bg or a photo */
 }
 
 .starex-hero:nth-child(2) {
     background-color: #111;   /* ADD this line */
     background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
-        url('ceramic.png');
+        url('assest/ceramic.png');
 }
 /* Product Image Layer */
 /* .hero-product-img {
